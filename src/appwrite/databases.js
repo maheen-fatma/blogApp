@@ -116,6 +116,13 @@ export class DatabaseService{
         }
     }
 
+    filePreview(fileId){
+        // we do not need this as a promise since we are not passing or retrieving a big file or something, its just the url or say preview of the file
+        
+            return this.storage.getFilePreview(conf.appwriteBucketId, fileId);
+         
+    }
+
 }
 
 const dbService = new DatabaseService()
