@@ -33,10 +33,11 @@ function Header() {
     }
   ]
   return (
-    <div>
-      Header
-      
-    </div>
+    <header className="bg-gray-900 text-white py-4 px-6">
+      <div className="container mx-auto">
+        <h1 className="text-lg font-bold">Your Header</h1>
+      </div>
+    </header>
   )
 }
 
