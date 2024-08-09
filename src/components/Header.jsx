@@ -30,11 +30,7 @@ function Header() {
       name:'Sign-Up',
       slug:"/signup",
       active: !isLogin
-    },{
-      name:'Home',
-      slug:"/",
-      active: true
-    },
+    }
   ]
   return (
     <div>

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { useDispatch } from "react-redux"
 import authService from "./appwrite/auth"
 import { login, logout } from "./store/authSlice"
-import {Header, Footer} from "./components"
+import {Layout} from "./components"
 
 function App() {
 
@@ -29,8 +29,7 @@ function App() {
   //conditional rendering as per loading
   return !loading ? (
     <div>
-      <Header/>
-      <Footer />
+      <Layout />
     </div>
   ) : (
     <div>
