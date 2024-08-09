@@ -33,18 +33,18 @@ function Header() {
     }
   ]
   return (
-    <header className="bg-gray-900 text-white px-6 py-4 ">
-      <div className=''>
+    <header className="bg-gray-900 text-white ">
+      <div className=' text-center py-3 lg:py-5'>
         <h1>FASHION BLOG APP</h1>
       </div>
       <hr />
-      <div className="container mx-auto">
-        <ul className='flex ml-auto'>
+      <div className="">
+        <ul className='flex ml-auto justify-center md:justify-end'>
           {
             navItems.map((item)=>
               item.active ? (
                 <li key={item.name}
-                    className='px-6 py-2 transition duration-500 hover:bg-blue-700 '
+                    className='transition duration-500 hover:bg-blue-700 py-2 px-6 '
                 >
                   <Link to={item.slug}>
                   {item.name}
