@@ -1,6 +1,6 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-
+import { Link } from 'react-router-dom';
 function Header() {
   const isLogin = useSelector((state) => state.auth.status); //this line see the userlogin status
   
@@ -35,7 +35,19 @@ function Header() {
   return (
     <header className="bg-gray-900 text-white py-4 px-6">
       <div className="container mx-auto">
-        <h1 className="text-lg font-bold">Your Header</h1>
+        <ul>
+          {
+            navItems.map((item)=>
+              item.active ? (
+                <li key={item.name}>
+                  <Link to={item.slug}>
+                  {item.name}
+                  </Link>
+                </li>
+              ) : null
+            )
+          }
+        </ul>
       </div>
     </header>
   )
