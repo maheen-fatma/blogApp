@@ -1,14 +1,14 @@
 import { createSlice } from "@reduxjs/toolkit";
 //this slice is created to store if there is any user who has logged in or not and if yes, then the details of the user
 //this will help give the various accesibility rights to the user who has loggen in
-const intialState= {
+const initialState= {
     status: false,
     userInfo: null
 }
 
 export const authSlice = createSlice({
     name:"auth",
-    intialState,
+    initialState,
     reducer: {
         login: (state, action) => {
             state.status= true
