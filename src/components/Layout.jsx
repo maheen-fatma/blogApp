@@ -1,5 +1,6 @@
 import React from 'react'
 import {Header, Footer} from "./"
+import { Outlet } from 'react-router-dom'
 
 function Layout() {
   return (
@@ -8,6 +9,7 @@ function Layout() {
         <Header/>
         <main className="flex-grow">
         {/* The router outlet or main content goes here */}
+        <Outlet />
        </main>
         <Footer />
       </div>

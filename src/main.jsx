@@ -4,11 +4,22 @@ import App from './App.jsx'
 import './index.css'
 import { Provider } from 'react-redux'
 import { store } from './store/store.js'
+import { createBrowserRouter, createRoutesFromElements, RouterProvider, Route} from 'react-router-dom'
+import {Home} from './pages'
 
+const router = createBrowserRouter(
+  createRoutesFromElements(
+    //routes go here
+    <Route path='/' element = {<App/>}>
+      <Route index element = {<Home/>}/>
+    </Route>
+  )
+)
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Provider store = {store} >
-      <App />
+      <RouterProvider router={router} />
+      
     </Provider>
   </React.StrictMode>,
 )
