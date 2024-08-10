@@ -1,6 +1,7 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom';
+import {Logo} from './index'
 function Header() {
   const isLogin = useSelector((state) => state.auth.status); //this line see the userlogin status
   
@@ -35,7 +36,7 @@ function Header() {
   return (
     <header className="bg-gray-900 text-white ">
       <div className=' text-center py-3 lg:py-5'>
-        <h1>FASHION BLOG APP</h1>
+        <Logo/>
       </div>
       <hr />
       <div className="">
