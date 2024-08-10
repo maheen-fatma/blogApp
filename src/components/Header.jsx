@@ -2,6 +2,7 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom';
 import { Logo } from './index'
+import SignoutBtn from './SignoutBtn';
 
 function Header() {
   const isLogin = useSelector((state) => state.auth.status); //this line see the userlogin status
@@ -55,6 +56,10 @@ function Header() {
               ) : null
             )
           }
+          {
+          isLogin && 
+          <SignoutBtn/>
+        }
         </ul>
       </div>
     </header>

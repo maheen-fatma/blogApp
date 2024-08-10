@@ -3,7 +3,7 @@ import React from 'react'
 function Button({
     children="Button", //the content displayed on Button
     type="button",
-    width="w-24",
+    width="",
     bgColor="bg-black",
     textColor,
     className="",
