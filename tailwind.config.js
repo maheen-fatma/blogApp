@@ -6,11 +6,12 @@ export default {
   ],
   theme: {
     extend: {
-      colors: { // custom colors
-        background: '#e0d8c2',
-        whiteBg: '#fcfbfa',
-        buttons1: "#f8d8c2",
-        buttons2: '#d7a97f',
+      colors: { // custom colors e0d8c2
+        background: '#efe7da',
+        headerFooter: "#e1daca",
+        whiteBg: '#f6f5ec',
+        buttons1: "#c1b6a4",
+        buttons2: '#800000',
         fontText: '#000000',
       },
     },

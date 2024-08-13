@@ -1,4 +1,4 @@
-import React from 'react'
+/*import React from 'react'
 import { Link } from 'react-router-dom'
 import dbService from '../appwrite/databases'
 function PostPreview({
@@ -17,4 +17,4 @@ function PostPreview({
   )
 }
 
-export default PostPreview
+export default PostPreview*/

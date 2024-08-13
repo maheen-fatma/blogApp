@@ -6,12 +6,14 @@ import { Provider } from 'react-redux'
 import { store } from './store/store.js'
 import { createBrowserRouter, createRoutesFromElements, RouterProvider, Route} from 'react-router-dom'
 import {Home} from './pages'
+import SignUp from './pages/SignUp.jsx'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     //routes go here
     <Route path='/' element = {<App/>}>
       <Route index element = {<Home/>}/>
+      <Route path='signup' element={<SignUp/>} />
     </Route>
   )
 )

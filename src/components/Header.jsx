@@ -36,7 +36,7 @@ function Header() {
     }
   ]
   return (
-    <header className="bg-gray-900 text-white ">
+    <header className="  bg-headerFooter text-buttons2 ">
       <div className=' text-center py-3 lg:py-5'>
         <Logo/>
       </div>
