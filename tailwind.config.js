@@ -6,13 +6,18 @@ export default {
   ],
   theme: {
     extend: {
-      colors: { // custom colors e0d8c2
+      colors: { // custom colors e1daca
         background: '#efe7da',
-        headerFooter: "#e1daca",
+        headerFooter: "e1daca",
         whiteBg: '#f6f5ec',
         buttons1: "#c1b6a4",
         buttons2: '#800000',
         fontText: '#000000',
+      },
+      fontFamily: {
+        balige: ['BALIGE', 'sans-serif'],
+        devorana: ['DEVORANA', 'sans-serif'],
+        
       },
     },
   },
