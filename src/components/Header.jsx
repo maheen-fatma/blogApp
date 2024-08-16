@@ -36,13 +36,13 @@ function Header() {
     }
   ]
   return (
-    <header className="  bg-headerFooter text-buttons2  ">
-      <div className=' text-center py-3 lg:py-5'>
+    <header className="   text-customMaroon  ">
+      <div className=' text-center py-2 lg:py-2'>
         <Logo/>
       </div>
       <hr />
       <div className="">
-        <ul className='flex ml-auto justify-center md:justify-end'>
+        <ul className='flex ml-auto justify-center md:justify-end font-dolce'>
           {
             navItems.map((item)=>
               item.active ? (

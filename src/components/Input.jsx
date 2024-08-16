@@ -9,10 +9,10 @@ function Input({
 ) {
     const id= useId()
   return (
-    <div>
+    <div className=' flex justify-between '>
       {
         label &&  //if label exists
-        <label htmlFor={id}>
+        <label htmlFor={id} className='pr-2'>
             {label}
         </label>
       }

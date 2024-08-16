@@ -9,4 +9,8 @@
     font-family: 'DEVORANA';
     src: url('../public/fonts/derovana/DerovanaDemoRegular.ttf');
 }
+@font-face {
+    font-family: 'DOLCE';
+    src: url('../public/fonts/gellix/GellixRegular.otf');
+}
 
