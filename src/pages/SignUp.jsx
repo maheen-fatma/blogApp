@@ -4,8 +4,9 @@ import { useDispatch } from 'react-redux'
 import { useState } from 'react'
 import authService from '../appwrite/auth'
 import { login } from '../store/authSlice'
+import { useNavigate } from 'react-router-dom'
 function SignUp() {
-
+  const navigate= useNavigate()
   const [name, setName] = useState('')
   const [password, setPassword] = useState('')
   const [email, setEmail] = useState('')
@@ -18,7 +19,8 @@ function SignUp() {
       const session= await authService.createAccount({email, password, name})
       if(session){
         const userData = await authService.getLoggedInUser() 
-        if(userData) dispatch(login(userData))
+        if(userData) dispatch(login({userData}))
+        navigate("/")
       }
     }
     catch(error){

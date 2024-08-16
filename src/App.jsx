@@ -13,7 +13,7 @@ function App() {
 
   useEffect(()=>{
       authService.getLoggedInUser()
-      .then( (userInfor) => { // if there is a user then run the login reducer form the store which causes the login status to be true
+      .then( (userInfo) => { // if there is a user then run the login reducer form the store which causes the login status to be true
         if(userInfo){
           dispatch(login({userInfo}))
         }
