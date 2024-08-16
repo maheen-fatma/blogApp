@@ -2,13 +2,29 @@ import React from 'react'
 import { Input, Button, Logo } from '../components'
 import { useDispatch } from 'react-redux'
 import { useState } from 'react'
+import authService from '../appwrite/auth'
+import { login } from '../store/authSlice'
 function SignUp() {
 
   const [name, setName] = useState('')
   const [password, setPassword] = useState('')
   const [email, setEmail] = useState('')
-  const handleSubmit = (e) => {
+  const [error, setError] = useState('')
+  const dispatch = useDispatch()
+  const handleSubmit = async (e) => {
     e.preventDefault()
+    setError("")
+    try{
+      const session= await authService.createAccount({email, password, name})
+      if(session){
+        const userData = await authService.getLoggedInUser() 
+        if(userData) dispatch(login(userData))
+      }
+    }
+    catch(error){
+      setError(error.message)
+    }
+    
   }
   return (
     <div className=' font-dolce p-10 flex flex-col items-center justify-center text-customMaroon'>
@@ -37,6 +53,7 @@ function SignUp() {
           className="p-2 lg:w-full rounded-sm border  bg-white focus:outline-none focus:ring-2 focus:ring-background focus:border-transparent focus:shadow-md"
           onChange={(e)=>setPassword(e.target.value)}
         /> 
+        {error && <p className="text-red-600 mt-8 text-center">{error}</p>}
         <Button 
           children='Create Account'
           bgColor='bg-buttons1'
