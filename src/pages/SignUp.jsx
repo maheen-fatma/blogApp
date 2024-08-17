@@ -5,6 +5,7 @@ import { useState } from 'react'
 import authService from '../appwrite/auth'
 import { login } from '../store/authSlice'
 import { useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 function SignUp() {
   const navigate= useNavigate()
   const [name, setName] = useState('')
@@ -31,7 +32,7 @@ function SignUp() {
   return (
     <div className=' font-dolce p-10 flex flex-col items-center justify-center text-customMaroon'>
       
-      <div className=' bg-whiteBg p-8 rounded-md shadow-md lg:w-1/3'>
+      <div className=' bg-whiteBg p-8 rounded-md shadow-lg shadow-neutral-500 lg:w-1/3'>
       <h1 className=' mb-10 text-2xl font-bold'>Sign-Up</h1>
       <form onSubmit={handleSubmit} className=' space-y-6'>
         <Input 
@@ -48,13 +49,16 @@ function SignUp() {
           className="p-2 lg:w-full rounded-sm border  bg-white focus:outline-none focus:ring-2 focus:ring-background focus:border-transparent focus:shadow-md"
           onChange={(e)=>setEmail(e.target.value)}
         /> 
+        <div>
         <Input 
           value={password}
           type="password"
           placeholder="Password"
-          className="p-2 lg:w-full rounded-sm border  bg-white focus:outline-none focus:ring-2 focus:ring-background focus:border-transparent focus:shadow-md"
+          className="p-2 lg:w-full rounded-sm border   bg-white focus:outline-none focus:ring-2 focus:ring-background focus:border-transparent focus:shadow-md"
           onChange={(e)=>setPassword(e.target.value)}
         /> 
+        <div className=' text-xs mt-1 ml-1 text-gray-500 '>Must be at least 8 characters.</div>
+        </div>
         {error && <p className="text-red-600 mt-8 text-center">{error}</p>}
         <Button 
           children='Create Account'
@@ -64,6 +68,8 @@ function SignUp() {
           type='submit'
         />
       </form>
+      <br />
+      <p className=' text-gray-500'>Already have an account? <Link to="/sign-in" className=' hover:text-customMaroon underline underline-offset-2'>Sign In</Link> </p>
       </div>
     </div>
   )
