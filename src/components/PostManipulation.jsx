@@ -15,7 +15,7 @@ function PostManipulation({post}) {
         imageState: null
     })
     const handleInputChange = (e) => {
-        const [name, value] = e.target;
+        const {name, value} = e.target;
         setFormData((prev)=>({
             ...prev,
             [name]: value,
@@ -27,12 +27,7 @@ function PostManipulation({post}) {
             imageState: e.target.files[0]
         }))
     }
-    useEffect(()=>{
-        setFormData((prev)=>({
-            ...prev,
-            slug: slugTransform(prev.title)
-        }))
-    },[formData.title, slugTransform])
+    
 
     const slugTransform = useCallback((value)=>{
         if(value){
@@ -41,13 +36,23 @@ function PostManipulation({post}) {
         return "";
     },[])
 
+    useEffect(()=>{
+        const newSlug=slugTransform(formData.title)
+        if(formData.slug!==newSlug){ 
+        setFormData((prev)=>({
+            ...prev,
+            slug: newSlug
+        }))
+    }
+    },[formData.title, slugTransform])
+
     const handleSubmit = async (e) => {
         e.preventDefault()
         let file= null //initialize a variable to store the uploaded file
 
-        if(formData.image){ //if the image file was provided by the user...
+        if(formData.imageState){ //if the image file was provided by the user...
             //upload the image file
-            file = await dbService.uploadFile(formData.image)
+            file = await dbService.uploadFile(formData.imageState)
         }
 
         if(post) //if the post is being updated

@@ -1,4 +1,4 @@
-import { Client, Databases, ID } from "appwrite";
+import { Client, Databases, Storage, ID } from "appwrite";
 import conf from "../conf/conf";
 
 export class DatabaseService{
@@ -11,8 +11,8 @@ export class DatabaseService{
         this.client.setEndpoint(conf.appwriteUrl)
         .setProject(conf.appwriteProjectId);
 
-        this.databases = new Databases(client);
-        this.storage = new Storage(client);
+        this.databases = new Databases(this.client);
+        this.storage = new Storage(this.client);
     }
 
     async newPost ({title, slug, content, image, userId }){ //to create a new post
