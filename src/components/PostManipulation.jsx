@@ -4,13 +4,15 @@ import EditorComponent from './EditorComponent'
 import dbService from '../appwrite/databases'
 import Button from './Button'
 import { useNavigate } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 function PostManipulation({post}) {
+    const userData = useSelector((state)=>(state.auth.userInfo))
     const navigate= useNavigate()
     const [formData, setFormData] = useState({
         title: post?.title || "",
         slug: post?.slug || "",
         content: post?.content || "",
-        image: null
+        imageState: null
     })
     const handleInputChange = (e) => {
         const [name, value] = e.target;
@@ -22,7 +24,7 @@ function PostManipulation({post}) {
     const handleFileChange = (e) => {
         setFormData((prev)=>({
             ...prev,
-            image: e.target.files[0]
+            imageState: e.target.files[0]
         }))
     }
     useEffect(()=>{
@@ -60,8 +62,22 @@ function PostManipulation({post}) {
                 image: file ? file.$id : post.image 
             })
             //here what we did was is to update the formData state variable with the new image id that has been uploaded if at all it was 
-            if(updatedPost){
+            if(updatedPost){ //if every updation was done sucessfully, navigate to the posts page
                 navigate(`/post/${updatedPost.$id}`)
+            }
+        }
+        else //if new post is to be created
+        {
+            if(file){
+                //if file was uploaded
+                formData.image=file.$id //add the file id to the form data
+                const newPost=await dbService.newPost({
+                    ...formData,
+                    userId: userData.$id
+                })
+                if(newPost){
+                    navigate(`/post/${newPost.$id}`)
+                }
             }
         }
     }
@@ -92,10 +108,8 @@ function PostManipulation({post}) {
         />
         <Input
             label= "Image: "
-            name="image"
+            name="imageState"
             type= "file"
-            value={formData.title}
-            placeholder= "Title"
             accept="image/png, image/jpg, image/jpeg, image/gif"
             onChange={handleFileChange}
             required={!post} // if post is not there i.e if the user is creating a new post then it is a must
