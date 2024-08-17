@@ -26,12 +26,12 @@ function Header() {
       slug:"/add",
       active: isLogin
     },{
-      name:'Sign-in',
-      slug:"/signin",
+      name:'Sign-In',
+      slug:"/sign-in",
       active: !isLogin //show this only when the user is not loggen in
     },{
       name:'Sign-Up',
-      slug:"/signup",
+      slug:"/sign-up",
       active: !isLogin
     }
   ]
