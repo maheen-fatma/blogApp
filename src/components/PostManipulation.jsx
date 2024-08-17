@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import Input from './Input'
+import EditorComponent from './EditorComponent'
 function PostManipulation({post}) {
     const [formData, setFormData] = useState({
         title: post?.title || "",
@@ -38,6 +39,12 @@ function PostManipulation({post}) {
             placeholder= "Slug"
             onChange={handleInputChange}
             required
+        />
+        <EditorComponent
+            lable="Content: "
+            name= "content"
+            value= {formData.content}
+            onChange={(value) => setFormData((prev)=>({...prev, content: value}))}
         />
         <Input
             label= "Image: "
