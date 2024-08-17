@@ -134,6 +134,7 @@ function PostManipulation({post}) {
 
         />
       </form>
+      {formData.title}
     </div>
   )
 }

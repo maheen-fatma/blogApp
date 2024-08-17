@@ -10,7 +10,7 @@ function EditorComponent({name, label, defaultValue="", onChange}) {
     if(onChange){
       onChange(content);
     }
-  },[content, onChange])
+  },[content])
 
   const editorRef = useRef(null);
   
