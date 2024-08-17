@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import Input from './Input'
 import EditorComponent from './EditorComponent'
 function PostManipulation({post}) {
@@ -21,6 +21,19 @@ function PostManipulation({post}) {
             image: e.target.files[0]
         }))
     }
+    useEffect(()=>{
+        setFormData((prev)=>({
+            ...prev,
+            slug: slugTransform(prev.title)
+        }))
+    },[formData.title, slugTransform])
+
+    const slugTransform = useCallback((value)=>{
+        if(value){
+            return value.trim().toLowerCase().replace(/ /g,'-')
+        }
+        return "";
+    },[])
   return (
     <div>
       <form onSubmit={handleSubmit}>
