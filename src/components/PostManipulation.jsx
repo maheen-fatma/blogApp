@@ -1,7 +1,10 @@
 import React, { useCallback, useEffect, useState } from 'react'
 import Input from './Input'
 import EditorComponent from './EditorComponent'
+import dbService from '../appwrite/databases'
+import Button from './Button'
 function PostManipulation({post}) {
+    
     const [formData, setFormData] = useState({
         title: post?.title || "",
         slug: post?.slug || "",
@@ -69,7 +72,20 @@ function PostManipulation({post}) {
             onChange={handleFileChange}
             required={!post} // if post is not there i.e if the user is creating a new post then it is a must
         />
+        {post && (
+            <div className="">
+            <img
+                src={dbService.getFilePreview(post.image)}
+                alt={post.title}
+                className=""
+            />
+            </div>
+        )}
+        <Button
+        children={post? "Update":"Create Post"}
+        type='submit'
 
+        />
       </form>
     </div>
   )
