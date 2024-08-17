@@ -4,7 +4,7 @@ import Layout from "./Layout";
 import Logo from "./Logo";
 import Button from "./Button";
 import Input from "./Input";
-
+import EditorComponent from "./EditorComponent";
 //import PostPreview from "./PostPreview";
 export  {
     Header,
@@ -13,5 +13,6 @@ export  {
     Logo,
     Button,
     Input,
+    EditorComponent,
     //PostPreview,
 }
