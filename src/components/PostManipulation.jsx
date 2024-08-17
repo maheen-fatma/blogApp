@@ -3,8 +3,9 @@ import Input from './Input'
 import EditorComponent from './EditorComponent'
 import dbService from '../appwrite/databases'
 import Button from './Button'
+import { useNavigate } from 'react-router-dom'
 function PostManipulation({post}) {
-    
+    const navigate= useNavigate()
     const [formData, setFormData] = useState({
         title: post?.title || "",
         slug: post?.slug || "",
@@ -37,6 +38,33 @@ function PostManipulation({post}) {
         }
         return "";
     },[])
+
+    const handleSubmit = async (e) => {
+        e.preventDefault()
+        let file= null //initialize a variable to store the uploaded file
+
+        if(formData.image){ //if the image file was provided by the user...
+            //upload the image file
+            file = await dbService.uploadFile(formData.image)
+        }
+
+        if(post) //if the post is being updated
+        {
+            if(file){
+                //check if the new file was uploaded then delete the old file
+                dbService.deleteFile(post.image)
+            }
+            //update the existing post with a new data
+            const updatedPost = await dbService.editPost(post.$id,{
+                ...formData,
+                image: file ? file.$id : post.image 
+            })
+            //here what we did was is to update the formData state variable with the new image id that has been uploaded if at all it was 
+            if(updatedPost){
+                navigate(`/post/${updatedPost.$id}`)
+            }
+        }
+    }
   return (
     <div>
       <form onSubmit={handleSubmit}>
