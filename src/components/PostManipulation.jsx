@@ -14,6 +14,12 @@ function PostManipulation({post}) {
             [name]: value,
         }))
     }
+    const handleFileChange = (e) => {
+        setFormData((prev)=>({
+            ...prev,
+            image: e.target.files[0]
+        }))
+    }
   return (
     <div>
       <form onSubmit={handleSubmit}>
@@ -26,14 +32,24 @@ function PostManipulation({post}) {
             required
         />
         <Input
-            label= "Title: "
-            name="title"
-            value={formData.title}
-            placeholder= "Title"
+            label= "Slug: "
+            name="slug"
+            value={formData.slug}
+            placeholder= "Slug"
             onChange={handleInputChange}
             required
         />
-        
+        <Input
+            label= "Image: "
+            name="image"
+            type= "file"
+            value={formData.title}
+            placeholder= "Title"
+            accept="image/png, image/jpg, image/jpeg, image/gif"
+            onChange={handleFileChange}
+            required={!post} // if post is not there i.e if the user is creating a new post then it is a must
+        />
+
       </form>
     </div>
   )
