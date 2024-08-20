@@ -53,6 +53,7 @@ function PostManipulation({post}) {
         if(formData.imageState){ //if the image file was provided by the user...
             //upload the image file
             file = await dbService.uploadFile(formData.imageState)
+            
         }
 
         if(post) //if the post is being updated
@@ -73,14 +74,18 @@ function PostManipulation({post}) {
         }
         else //if new post is to be created
         {
+            
             if(file){
+                console.log("no");
                 //if file was uploaded
                 formData.image=file.$id //add the file id to the form data
                 const newPost=await dbService.newPost({
                     ...formData,
                     userId: userData.$id
+
                 })
                 if(newPost){
+                    
                     navigate(`/post/${newPost.$id}`)
                 }
             }

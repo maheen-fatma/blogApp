@@ -93,13 +93,13 @@ export class DatabaseService{
 
     async uploadFile(file){
         try {
-            await this.storage.createFile(
+            return await this.storage.createFile(
                 conf.appwriteBucketId,
                 ID.unique(),
                 file
             );
         } catch (error) {
-            console.log(error);
+            console.log("error in file upload");
             return false;
         }
     }

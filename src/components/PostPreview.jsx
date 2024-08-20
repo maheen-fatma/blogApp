@@ -1,4 +1,4 @@
-/*import React from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
 import dbService from '../appwrite/databases'
 function PostPreview({
@@ -7,7 +7,7 @@ function PostPreview({
     image
 }) {
   return (
-    <Link to={`\posts\${$id}`}> 
+    <Link to={`/posts/${$id}`}> 
         <div className=' bg-yellow-300'>
             <h1>TO BE DESIGNED</h1>
             <img src={dbService.getFilePreview(image)} alt="Image" />
@@ -17,4 +17,4 @@ function PostPreview({
   )
 }
 
-export default PostPreview*/
+export default PostPreview

@@ -6,7 +6,7 @@ import Button from "./Button";
 import Input from "./Input";
 import EditorComponent from "./EditorComponent";
 import PostManipulation from "./PostManipulation";
-//import PostPreview from "./PostPreview";
+import PostPreview from "./PostPreview";
 export  {
     Header,
     Footer,
@@ -16,5 +16,5 @@ export  {
     Input,
     EditorComponent,
     PostManipulation,
-    //PostPreview,
+    PostPreview,
 }
