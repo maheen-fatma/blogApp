@@ -80,7 +80,7 @@ export class DatabaseService{
 
     async getAllPost (){ //we may use query to filter out which posts we may want
         try {
-            await this.databases.listDocuments(
+            return await this.databases.listDocuments(
                 conf.appwriteDatabaseId, // databaseId
                 conf.appwriteCollectionId,// collectionId
                 

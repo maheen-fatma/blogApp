@@ -10,7 +10,7 @@ function PostPreview({
     <Link to={`/posts/${$id}`}> 
         <div className=' bg-yellow-300'>
             <h1>TO BE DESIGNED</h1>
-            <img src={dbService.getFilePreview(image)} alt="Image" />
+            <img src={dbService.filePreview(image)} alt="Image" />
             <h1>{title}</h1>
         </div>
     </Link>
