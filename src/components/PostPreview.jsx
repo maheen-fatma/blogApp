@@ -8,10 +8,11 @@ function PostPreview({
 }) {
   return (
     <Link to={`/posts/${$id}`}> 
-        <div className=' bg-yellow-300'>
-            <h1>TO BE DESIGNED</h1>
-            <img src={dbService.filePreview(image)} alt="Image" />
-            <h1>{title}</h1>
+        <div className=' bg-whiteBg rounded-2xl overflow-hidden shadow-md  '>
+            
+            <img src={dbService.filePreview(image)} alt="Image" className=' w-full h-auto object-cover ' />
+            <h1 className=' p-2 text-lg font-bold font-dolce'>{title}</h1>
+            
         </div>
     </Link>
   )
