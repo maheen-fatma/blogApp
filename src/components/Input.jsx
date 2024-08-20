@@ -4,12 +4,13 @@ function Input({
     label,
     type="text",
     className="",
+    overallClassName,
     ...props
 }, ref
 ) {
     const id= useId()
   return (
-    <div className=' flex justify-between '>
+    <div className={`${overallClassName}`}>
       {
         label &&  //if label exists
         <label htmlFor={id} className='pr-2'>

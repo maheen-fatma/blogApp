@@ -96,6 +96,8 @@ function PostManipulation({post}) {
             placeholder= "Title"
             onChange={handleInputChange}
             required
+            className="mb-1 p-2  rounded-md border  bg-white focus:outline-none focus:ring-2 focus:ring-background focus:border-transparent focus:shadow-lg "
+            overallClassName= " font-dolce ml-4"
         />
         <Input
             label= "Slug: "
@@ -103,22 +105,23 @@ function PostManipulation({post}) {
             value={formData.slug}
             placeholder= "Slug"
             onChange={handleInputChange}
-            required
+            disabled
+            className="p-2 mb-2 rounded-md border  bg-white focus:outline-none focus:ring-2 focus:ring-background focus:border-transparent focus:shadow-lg "
+            overallClassName= " font-dolce ml-4"
         />
-        <EditorComponent
-            lable="Content: "
-            name= "content"
-            value= {formData.content}
-            onChange={(value) => setFormData((prev)=>({...prev, content: value}))}
-        />
+        <div className={`p-5 flex ${post ? 'flex-row  space-x-6' : 'flex-col space-y-5'} m-10 border border-customMaroon border-solid rounded-md`}>
+
+        <div className={` ${post ? 'w-1/2 ' : 'pl-3'}`}>
         <Input
-            label= "Image: "
+            label= "Add Image: "
             name="imageState"
             type= "file"
             accept="image/png, image/jpg, image/jpeg, image/gif"
+            overallClassName =' font-dolce'
             onChange={handleFileChange}
             required={!post} // if post is not there i.e if the user is creating a new post then it is a must
         />
+        
         {post && (
             <div className="">
             <img
@@ -128,13 +131,22 @@ function PostManipulation({post}) {
             />
             </div>
         )}
+        </div>
+        <EditorComponent
+            lable="Content: "
+            name= "content"
+            value= {formData.content}
+            onChange={(value) => setFormData((prev)=>({...prev, content: value}))}
+            className={` ${post ? 'w-1/2' : ''}`}
+        />
+        </div>
         <Button
         children={post? "Update":"Create Post"}
         type='submit'
-
+        className=' shadow-md border  border-white border-solid hover:border-none  bg-buttons1 text-white ml-10 rounded-md font-dolce font-bold hover:shadow-lg '
         />
       </form>
-      {formData.title}
+      
     </div>
   )
 }

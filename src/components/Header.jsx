@@ -23,7 +23,7 @@ function Header() {
       active: isLogin
     },{
       name:'Add Post',
-      slug:"/add",
+      slug:"/add-post",
       active: isLogin
     },{
       name:'Sign-In',
