@@ -22,7 +22,7 @@ function AllPosts() {
         
     }
   return (
-    <div className=' p-[20px] '>
+    <div className=' px-10 p-[20px] '>
       <InfiniteScroll
                 dataLength={posts.length}
                 next={loadPosts}
