@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { PostPreview } from '../components'
 import dbService from '../appwrite/databases'
+import Masonry, {ResponsiveMasonry} from 'react-responsive-masonry'
 function AllPosts() {
     const [posts , setPosts] = useState([])
     useEffect(()=>{
@@ -13,14 +14,16 @@ function AllPosts() {
         
     },[])
   return (
-    <div className=' mt-5 px-4 '>
-        <div className=' masonry sm:masonry-sm md:masonry-md lg:masonry-lg gap-6'>
+    <div className=' '>
+      <ResponsiveMasonry columnsCountBreakPoints={{350: 1, 750: 2, 900: 4}}>
+        <Masonry gutter="16px">
       {posts && posts.map((item)=>(
         <div key={item.$id} className=' '>
             <PostPreview {...item} />
         </div>
       ))}
-      </div>
+        </Masonry>
+      </ResponsiveMasonry>
     </div>
   )
 }
