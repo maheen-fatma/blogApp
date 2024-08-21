@@ -1,11 +1,16 @@
 import React, { useState } from 'react'
-
+import { useSelector } from 'react-redux'
+import AllPosts from './AllPosts'
 function Home() {
-  
-  
-  return (
+  const isLoggedIn = useSelector((state)=>(state.auth.status))
+  const userData = useSelector((state)=>(state.auth.userInfo))
+  return isLoggedIn ?  (
     <div className=' '>
-      Hi,
+      <AllPosts/>
+    </div>
+  ) : (
+    <div className='p-10 font-dolce text-2xl'>
+      Please Sign-in to view posts . . .
     </div>
   )
 }

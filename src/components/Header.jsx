@@ -1,6 +1,6 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { Logo } from './index'
 import SignoutBtn from './SignoutBtn';
 
@@ -14,11 +14,7 @@ function Header() {
       slug:"/",
       active: true //always visible irrespective of the fact user is logged in or not
     },{
-      name:'All Posts',
-      slug:"/all-posts",
-      active: isLogin
-    },{
-      name:'My Post',
+      name:'My Posts',
       slug:"/my-post",
       active: isLogin
     },{
@@ -46,13 +42,15 @@ function Header() {
           {
             navItems.map((item)=>
               item.active ? (
+                <NavLink to={item.slug} className={({isActive})=>`rounded-3xl  ${isActive? "bg-black text-white":"transition duration-500 hover:bg-buttons1"}`}>
                 <li key={item.name}
-                    className='transition duration-500 hover:bg-blue-700 py-2 px-6 '
+                    className='py-2 px-6 '
                 >
-                  <Link to={item.slug}>
+                 
                   {item.name}
-                  </Link>
+                 
                 </li>
+                </NavLink>
               ) : null
             )
           }

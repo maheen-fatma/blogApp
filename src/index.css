@@ -13,26 +13,4 @@
     font-family: 'DOLCE';
     src: url('../public/fonts/gellix/GellixRegular.otf');
 }
-.masonry {
-    display: flex;
-    flex-wrap: wrap;
-    margin-left: -1rem; /* adjust based on gap */
-}
-
-.masonry > * {
-    margin-bottom: 1rem; /* adjust based on gap */
-    margin-left: 1rem; /* adjust based on gap */
-}
-
-.masonry-sm > * {
-    width: 100%;
-}
-
-.masonry-md > * {
-    width: calc(50% - 1rem); /* adjust based on gap */
-}
-
-.masonry-lg > * {
-    width: calc(25% - 1rem); /* 25% width for four columns, adjust based on gap */
-}
 
