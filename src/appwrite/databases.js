@@ -73,7 +73,7 @@ export class DatabaseService{
                 
             );
         } catch (error) {
-            console.log(error);
+            console.log("The post cannot get");
             return false;
         }
     }

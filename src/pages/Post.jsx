@@ -3,6 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom'
 import dbService from '../appwrite/databases';
 import { useSelector } from 'react-redux';
 import parse from 'html-react-parser'
+import {Button, PostManipulation} from '../components'
 
 function Post() {
   const { fromUrl } = useParams(); //this extracts the 'fromUrl' parameter from the url. This particularly hold the id
@@ -15,7 +16,7 @@ function Post() {
   //to fetch that particular post whenever there is a change in the id parameter fetched from the url 
   useEffect(()=>{
     if(fromUrl){
-      console.log("formUrl milgya")
+      
       dbService.getPost(fromUrl).then((post)=>{
         if(post) 
           setPost(post);
@@ -27,11 +28,46 @@ function Post() {
     }
   },[fromUrl,navigate])
 
-  return (
-    <div className=' bg-purple-300'>
-      
+  const deletePost = ()=> {
+    dbService.deletePost(post.$id).then((isDeleted)=>{
+      if(isDeleted)
+        dbService.deleteFile(post.image)
+      navigate("/")
+    })
+  }
+
+  return post ? (
+    <div className=' p-10 lg:px-56'>
+      <div className=' flex md:flex-row flex-col justify-center bg-whiteBg rounded-3xl shadow-lg shadow-stone-400 '>
+          <div className='md:w-1/2 '>
+              <img 
+              src={dbService.filePreview(post.image)} 
+              alt="Post Image" 
+              className='rounded-tl-3xl rounded-bl-3xl h-full'
+              />
+          </div>
+          
+          <div className='md:w-1/2 p-5  '>
+              <div className='flex justify-end space-x-4'>
+                  <Button
+                  children='Delete'
+                  className='  font-dolce tracking-wider rounded-3xl px-5 hover:bg-red-700 '
+                  onClick={deletePost}
+                  />
+                  <Button
+                  children='Edit'
+                  className=' bg-red-600 text-white font-dolce tracking-wider rounded-3xl px-5 hover:bg-red-700 '
+                  onClick={()=>{
+                    navigate(`/edit-post/${post.$id}`)
+                  }}
+                  />
+              </div>
+              <h1 className=' text-3xl font-dolceBold tracking-wider'>{post.title}</h1>
+              <div className=' font-dolce text-lg pt-5'>{ parse(post.content) }</div>
+          </div>
+      </div>
     </div>
-  )
+  ) : null
 }
 
 export default Post

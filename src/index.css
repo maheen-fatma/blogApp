@@ -13,4 +13,7 @@
     font-family: 'DOLCE';
     src: url('../public/fonts/gellix/GellixRegular.otf');
 }
-
+@font-face {
+    font-family: 'DOLCEB';
+    src: url('../public/fonts/gellix/GellixBold.otf');
+}

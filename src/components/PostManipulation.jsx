@@ -69,8 +69,9 @@ function PostManipulation({post}) {
             })
             //here what we did was is to update the formData state variable with the new image id that has been uploaded if at all it was 
             if(updatedPost){ //if every updation was done sucessfully, navigate to the posts page
-                navigate(`/post/${updatedPost.$id}`)
-            }
+                
+                navigate(`/posts/${updatedPost.$id}`)
+            } 
         }
         else //if new post is to be created
         {
@@ -114,7 +115,7 @@ function PostManipulation({post}) {
             className="p-2 mb-2 rounded-md border  bg-white focus:outline-none focus:ring-2 focus:ring-background focus:border-transparent focus:shadow-lg "
             overallClassName= " font-dolce ml-4"
         />
-        <div className={`p-5 flex ${post ? 'flex-row  space-x-6' : 'flex-col space-y-5'} m-10 border border-customMaroon border-solid rounded-md`}>
+        <div className={`p-5 flex ${post ? 'flex-row  space-x-6 ' : 'flex-col space-y-5'} m-10 border border-customMaroon border-solid rounded-md`}>
 
         <div className={` ${post ? 'w-1/2 ' : 'pl-3'}`}>
         <Input
@@ -128,11 +129,11 @@ function PostManipulation({post}) {
         />
         
         {post && (
-            <div className="">
+            <div className=" pt-5">
             <img
-                src={dbService.getFilePreview(post.image)}
+                src={dbService.filePreview(post.image)}
                 alt={post.title}
-                className=""
+                className=" h-[350px] rounded-lg"
             />
             </div>
         )}

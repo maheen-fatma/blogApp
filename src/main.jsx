@@ -5,7 +5,7 @@ import './index.css'
 import { Provider } from 'react-redux'
 import { store } from './store/store.js'
 import { createBrowserRouter, createRoutesFromElements, RouterProvider, Route} from 'react-router-dom'
-import { Home, SignUp, SignIn, AddPost, Post } from './pages'
+import { Home, SignUp, SignIn, AddPost, Post, EditPost } from './pages'
 
 
 const router = createBrowserRouter(
@@ -17,6 +17,7 @@ const router = createBrowserRouter(
       <Route path='sign-in' element={<SignIn/>} />
       <Route path='add-post' element={<AddPost/>} />
       <Route path='posts/:fromUrl' element={<Post/>} />
+      <Route path='edit-post/:postId' element={<EditPost/>} />
     </Route>
   )
 )

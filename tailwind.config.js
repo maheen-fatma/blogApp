@@ -18,6 +18,7 @@ export default {
         balige: ['BALIGE', 'sans-serif'],
         devorana: ['DEVORANA', 'sans-serif'],
         dolce: ['DOLCE', 'sans-serif'],
+        dolceBold: ['DOLCEB','sans-serif']
       },
     },
   },
