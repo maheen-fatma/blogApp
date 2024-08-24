@@ -66,7 +66,7 @@ export class DatabaseService{
 
     async getPost (slug){ //to get a post based upon a slug value
         try {
-            return await thisdatabases.getDocument(
+            return await this.databases.getDocument(
                 conf.appwriteDatabaseId, // databaseId
                 conf.appwriteCollectionId, // collectionId
                 slug, // documentId

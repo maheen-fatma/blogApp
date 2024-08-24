@@ -1,8 +1,8 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import dbService from '../appwrite/databases';
 import { useSelector } from 'react-redux';
-import { parse } from 'postcss';
+import parse from 'html-react-parser'
 
 function Post() {
   const { fromUrl } = useParams(); //this extracts the 'fromUrl' parameter from the url. This particularly hold the id
@@ -15,6 +15,7 @@ function Post() {
   //to fetch that particular post whenever there is a change in the id parameter fetched from the url 
   useEffect(()=>{
     if(fromUrl){
+      console.log("formUrl milgya")
       dbService.getPost(fromUrl).then((post)=>{
         if(post) 
           setPost(post);
@@ -24,7 +25,7 @@ function Post() {
     } else {
       navigate("/")
     }
-  },[fromUrl])
+  },[fromUrl,navigate])
 
   return (
     <div className=' bg-purple-300'>

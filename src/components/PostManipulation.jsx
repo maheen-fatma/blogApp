@@ -76,9 +76,9 @@ function PostManipulation({post}) {
         {
             
             if(file){
-                
+                const fileId = file.$id 
                 //if file was uploaded
-                formData.image=file.$id //add the file id to the form data
+                formData.image=fileId//add the file id to the form data
                 const newPost=await dbService.newPost({
                     ...formData,
                     userId: userData.$id

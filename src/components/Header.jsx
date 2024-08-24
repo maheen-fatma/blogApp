@@ -42,8 +42,8 @@ function Header() {
           {
             navItems.map((item)=>
               item.active ? (
-                <NavLink to={item.slug} className={({isActive})=>`rounded-3xl  ${isActive? "bg-black text-white":"transition duration-500 hover:bg-buttons1"}`}>
-                <li key={item.name}
+                <NavLink key={item.name} to={item.slug} className={({isActive})=>`rounded-3xl  ${isActive? "bg-black text-white":"transition duration-500 hover:bg-buttons1"}`}>
+                <li 
                     className='py-2 px-6 '
                 >
                  
