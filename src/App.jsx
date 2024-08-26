@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { useDispatch } from "react-redux"
 import authService from "./appwrite/auth"
 import { login, logout } from "./store/authSlice"
-import {Layout} from "./components"
+import {Header, Layout, Logo} from "./components"
 
 function App() {
 
@@ -22,7 +22,12 @@ function App() {
         }
       } )
       .finally( () =>  //finally after all this, set loading as false to stop showing 
-        setLoading(false)
+      {
+        // Introduce a delay before setting loading to false
+        setTimeout(() => {
+          setLoading(false);
+        }, 2000); // 3 seconds delay
+      }
       )
   },[])
   
@@ -32,9 +37,13 @@ function App() {
       <Layout />
     </div>
   ) : (
-    <div>
-      Loading..
+    
+    <div className="flex items-center justify-center min-h-screen ">
+      
+    <div className=" animate-zoom-out font-devorana text-customMaroon text-[120px] tracking-wider   ">
+      chic
     </div>
+  </div>
   )
 }
 

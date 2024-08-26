@@ -20,6 +20,15 @@ export default {
         dolce: ['DOLCE', 'sans-serif'],
         dolceBold: ['DOLCEB','sans-serif']
       },
+      animation: {
+        'zoom-out': 'zoomOut 1s ease-out forwards',
+      },
+      keyframes: {
+        zoomOut: {
+          '0%': { transform: 'scale(5)' },
+          '100%': { transform: 'scale(1)' },
+        },
+      },
     },
   },
   plugins: [],
