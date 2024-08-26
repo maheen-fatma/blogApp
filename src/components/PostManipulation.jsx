@@ -8,6 +8,7 @@ import { useSelector } from 'react-redux'
 function PostManipulation({post}) {
     const userData = useSelector((state)=>(state.auth.userInfo))
     const navigate= useNavigate()
+    const [loading , setLoading] = useState(false)
     const [formData, setFormData] = useState({
         title: post?.title || "",
         slug: post?.slug || "",
@@ -49,7 +50,8 @@ function PostManipulation({post}) {
     const handleSubmit = async (e) => {
         e.preventDefault()
         let file= null //initialize a variable to store the uploaded file
-
+        setLoading(true)
+        
         if(formData.imageState){ //if the image file was provided by the user...
             //upload the image file
             file = await dbService.uploadFile(formData.imageState)
@@ -70,7 +72,7 @@ function PostManipulation({post}) {
             })
             //here what we did was is to update the formData state variable with the new image id that has been uploaded if at all it was 
             if(updatedPost){ //if every updation was done sucessfully, navigate to the posts page
-                
+                setLoading(false)
                 navigate(`/posts/${updatedPost.$id}`)
             } 
         }
@@ -88,13 +90,17 @@ function PostManipulation({post}) {
 
                 })
                 if(newPost){
-                    
+                    setLoading(false)
                     navigate(`/posts/${newPost.$id}`)
                 }
             }  
         }
     }
-  return (
+  return loading ? (
+    <div>
+        Loading...
+    </div>
+  ) : (
     <div>
       <form onSubmit={handleSubmit}>
         <Input
