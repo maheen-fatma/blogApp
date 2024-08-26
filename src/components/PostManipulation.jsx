@@ -123,7 +123,7 @@ function PostManipulation({post}) {
             className="p-2 mb-2 rounded-md border  bg-white focus:outline-none focus:ring-2 focus:ring-background focus:border-transparent focus:shadow-lg "
             overallClassName= " font-dolce ml-4"
         />
-        <div className={`p-5 flex ${post ? 'flex-row  space-x-6 ' : 'flex-col space-y-5'} m-10 border border-customMaroon border-solid rounded-md`}>
+        <div className={`p-5 flex ${post ? 'flex-row  space-x-6 ' : 'flex-col space-y-5'} m-10 border border-customMaroon border-solid rounded-2xl`}>
 
         <div className={` ${post ? 'w-1/2 ' : 'pl-3'}`}>
         <Input
