@@ -3,13 +3,17 @@ import Button from './Button'
 import { useDispatch } from 'react-redux'
 import authService from '../appwrite/auth'
 import { logout } from '../store/authSlice'
+import { useNavigate } from 'react-router-dom'
 function SignoutBtn() {
+  const navigate = useNavigate()
     const dispatch = useDispatch()
     const signoutHandler = () => { 
         authService.logout()
         .then(() => {
             dispatch(logout())
+            navigate("/")
         })
+
     }
   return (
     <div>
