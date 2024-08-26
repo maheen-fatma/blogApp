@@ -10,8 +10,8 @@ export default {
         background: '#efe7da',
         darkBg: "#d0c5b5 ",
         whiteBg: '#f6f5ec',
-        buttons1: '#c1b6a4',
-        customMaroon: '#8b0000',
+        buttons1: '#D3D3D3',
+        customMaroon: '#B22222',
         fontText: '#000000',
       },
       fontFamily: {

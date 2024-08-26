@@ -36,13 +36,13 @@ function Header() {
       <div className=' text-center py-2 lg:py-2'>
         <Logo/>
       </div>
-      <hr />
+      
       <div className="">
-        <ul className='flex ml-auto justify-center md:justify-end font-dolce'>
+        <ul className='flex ml-auto justify-center md:justify-end font-dolce tracking-wider mb-5'>
           {
             navItems.map((item)=>
               item.active ? (
-                <NavLink key={item.name} to={item.slug} className={({isActive})=>`rounded-3xl  ${isActive? "bg-black text-white":"transition duration-500 hover:bg-buttons1"}`}>
+                <NavLink key={item.name} to={item.slug} className={({isActive})=>`rounded-3xl py-1 ml-1  ${isActive? "bg-black text-white":"transition duration-500 hover:bg-buttons1 hover:bg-opacity-50"}`}>
                 <li 
                     className='py-2 px-6 '
                 >

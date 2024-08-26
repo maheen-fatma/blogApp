@@ -60,7 +60,7 @@ function SignIn() {
         <Button 
           children='Sign In'
           textColor='text-white'
-          className='lg:w-full bg-buttons1  hover:shadow-md rounded-md transition-transform transform duration-300 ease-in-out hover:scale-105 hover:bg-darkBg '
+          className='lg:w-full   hover:shadow-md rounded-md transition-transform transform duration-300 ease-in-out hover:scale-105 bg-black hover:bg-buttons1 hover:text-black '
           type='submit'
         />
       </form>

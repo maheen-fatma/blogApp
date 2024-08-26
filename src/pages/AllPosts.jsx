@@ -31,7 +31,7 @@ function AllPosts() {
                 endMessage={<p>No more posts</p>}
             >
       <ResponsiveMasonry columnsCountBreakPoints={{350: 2, 750: 3, 900: 4}}>
-        <Masonry gutter="20px">
+        <Masonry gutter="25px">
       {posts && posts.map((item)=>(
         <div key={item.$id} className=' '>
             <PostPreview {...item} />

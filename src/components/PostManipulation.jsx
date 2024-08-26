@@ -110,7 +110,7 @@ function PostManipulation({post}) {
             placeholder= "Title"
             onChange={handleInputChange}
             required
-            className="mb-1 p-2  rounded-md border  bg-white focus:outline-none focus:ring-2 focus:ring-background focus:border-transparent focus:shadow-lg "
+            className="mb-1 p-2  rounded-md border  bg-white focus:outline-none focus:ring-1 focus:ring-customMaroon focus:border-transparent focus:shadow-lg "
             overallClassName= " font-dolce ml-4"
         />
         <Input
@@ -157,7 +157,7 @@ function PostManipulation({post}) {
         <Button
         children={post? "Update":"Create Post"}
         type='submit'
-        className=' shadow-md border  border-white border-solid hover:border-none  bg-buttons1 text-white ml-10 rounded-md font-dolce font-bold hover:shadow-lg '
+        className=' shadow-md border  border-white border-solid hover:border-none  bg-black text-white ml-10 rounded-md font-dolce font-bold hover:shadow-lg '
         />
       </form>
       
