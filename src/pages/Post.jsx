@@ -49,6 +49,7 @@ function Post() {
           
           <div className='md:w-1/2 p-5  '>
               <div className='flex justify-end space-x-4'>
+                  { isCurrAuthor && ( <>
                   <Button
                   children='Delete'
                   className='  font-dolce tracking-wider rounded-3xl px-5 hover:bg-red-700 '
@@ -60,7 +61,9 @@ function Post() {
                   onClick={()=>{
                     navigate(`/edit-post/${post.$id}`)
                   }}
-                  />
+                  /> </>
+                )
+                  }
               </div>
               <h1 className=' text-3xl font-dolceBold tracking-wider'>{post.title}</h1>
               <div className=' font-dolce text-lg pt-5'>{ parse(post.content) }</div>
