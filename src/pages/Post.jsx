@@ -38,7 +38,7 @@ function Post() {
 
   return post ? (
     <div className=' p-10 lg:px-56'>
-      <div className=' flex md:flex-row flex-col justify-center bg-whiteBg rounded-3xl shadow-lg shadow-stone-400 '>
+      <div className=' flex md:flex-row flex-col justify-center bg-white rounded-3xl shadow-custom  '>
           <div className='md:w-1/2 '>
               <img 
               src={dbService.filePreview(post.image)} 

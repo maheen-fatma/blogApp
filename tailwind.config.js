@@ -29,6 +29,9 @@ export default {
           '100%': { transform: 'scale(1)' },
         },
       },
+      boxShadow: {
+        'custom': '0 10px 30px rgba(0, 0, 0, 0.15), 0 15px 45px rgba(0, 0, 0, 0.1)',
+      }
     },
   },
   plugins: [],

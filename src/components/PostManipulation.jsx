@@ -97,9 +97,11 @@ function PostManipulation({post}) {
         }
     }
   return loading ? (
-    <div>
-        Loading...
-    </div>
+    
+        <div className=' font-dolce text-2xl tracking-wider' >
+            Loading...
+        </div>
+      
   ) : (
     <div>
       <form onSubmit={handleSubmit}>

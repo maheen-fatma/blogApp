@@ -26,7 +26,7 @@ function App() {
         // Introduce a delay before setting loading to false
         setTimeout(() => {
           setLoading(false);
-        }, 2000); // 3 seconds delay
+        }, 1000); // 3 seconds delay
       }
       )
   },[])
