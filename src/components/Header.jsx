@@ -14,7 +14,7 @@ function Header() {
   useEffect(()=>{
     document.querySelector('html').classList.remove('light','dark')
     document.querySelector('html').classList.add(theme)
-    dispatch(change())
+    
   },[theme])
 
   const themeChanger = () => {
@@ -22,6 +22,7 @@ function Header() {
       setTheme("dark")
     else
       setTheme("light")
+    dispatch(change())
   }
   //items in the header are created as array of objects
   const navItems = [
@@ -48,7 +49,7 @@ function Header() {
     }
   ]
   return (
-    <header className="   text-customMaroon dark:bg-black  ">
+    <header className="   text-customMaroon dark:bg-gray-800 dark:text-whiteBg  ">
       <div className=' text-center py-2 lg:py-2'>
         <Logo/>
       </div>
@@ -58,7 +59,7 @@ function Header() {
           {
             navItems.map((item)=>
               item.active ? (
-                <NavLink key={item.name} to={item.slug} className={({isActive})=>`rounded-3xl py-1 ml-1  ${isActive? "bg-black text-white":"transition duration-500 hover:bg-buttons1 hover:bg-opacity-50"}`}>
+                <NavLink key={item.name} to={item.slug} className={({isActive})=>`rounded-3xl py-1 ml-1  ${isActive? "bg-black text-white":"transition duration-500 dark:hover:bg-gray-900 hover:bg-buttons1 hover:bg-opacity-50"}`}>
                 <li 
                     className='py-2 px-6 '
                 >

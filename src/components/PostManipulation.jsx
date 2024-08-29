@@ -6,6 +6,8 @@ import Button from './Button'
 import { useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 function PostManipulation({post}) {
+
+    
     const userData = useSelector((state)=>(state.auth.userInfo))
     const navigate= useNavigate()
     const [loading , setLoading] = useState(false)

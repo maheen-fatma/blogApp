@@ -6,6 +6,13 @@ import parse from 'html-react-parser'
 import {Button, PostManipulation} from '../components'
 
 function Post() {
+  const theme = useSelector((state)=>(state.theme.mode))
+  
+  useEffect(()=>{
+    document.querySelector('html').classList.remove("light","dark")
+    document.querySelector('html').classList.add(theme)
+  },[theme])
+
   const { fromUrl } = useParams(); //this extracts the 'fromUrl' parameter from the url. This particularly hold the id
   const [post , setPost] = useState(null);
   const navigate = useNavigate();
@@ -38,7 +45,7 @@ function Post() {
 
   return post ? (
     <div className=' p-10 lg:px-56'>
-      <div className=' flex md:flex-row flex-col justify-center bg-white rounded-3xl shadow-custom  '>
+      <div className=' flex md:flex-row flex-col justify-center dark:bg-gray-800 dark:text-whiteBg dark:shadow-cyan-900 bg-white rounded-3xl shadow-custom  '>
           <div className='md:w-1/2 '>
               <img 
               src={dbService.filePreview(post.image)} 
