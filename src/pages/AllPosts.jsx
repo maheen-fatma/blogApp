@@ -27,7 +27,7 @@ function AllPosts() {
                 dataLength={posts.length}
                 next={loadPosts}
                 hasMore={hasMore}
-                loader={<h4 className=' font-dolce text-2xl tracking-wider'>Loading...</h4>}
+                loader={<h4 className=' font-dolce text-2xl tracking-wider'>Loading posts...</h4>}
                 endMessage={<p>No more posts</p>}
             >
       <ResponsiveMasonry columnsCountBreakPoints={{350: 2, 750: 3, 900: 4}}>

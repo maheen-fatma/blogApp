@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState , useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { NavLink } from 'react-router-dom';
 import { Logo } from './index'
@@ -6,7 +6,19 @@ import SignoutBtn from './SignoutBtn';
 
 function Header() {
   const isLogin = useSelector((state) => state.auth.status); //this line see the userlogin status
-  
+  const [theme , setTheme] = useState("light");
+
+  useEffect(()=>{
+    document.querySelector('html').classList.remove('light','dark')
+    document.querySelector('html').classList.add(theme)
+  },[theme])
+
+  const themeChanger = () => {
+    if(theme=="light")
+      setTheme("dark")
+    else
+      setTheme("light")
+  }
   //items in the header are created as array of objects
   const navItems = [
     {
@@ -32,7 +44,7 @@ function Header() {
     }
   ]
   return (
-    <header className="   text-customMaroon  ">
+    <header className="   text-customMaroon dark:bg-black  ">
       <div className=' text-center py-2 lg:py-2'>
         <Logo/>
       </div>
@@ -58,6 +70,9 @@ function Header() {
           isLogin && 
           <SignoutBtn/>
         }
+        <button
+        onClick={themeChanger}
+        > Theme </button>
         </ul>
       </div>
     </header>
