@@ -5,6 +5,7 @@ import { Logo } from './index'
 import SignoutBtn from './SignoutBtn';
 import { useDispatch } from 'react-redux';
 import { change } from '../store/themeSlice';
+import { FaSun, FaMoon } from 'react-icons/fa';
 
 function Header() {
   const isLogin = useSelector((state) => state.auth.status); //this line see the userlogin status
@@ -73,9 +74,9 @@ function Header() {
           isLogin && 
           <SignoutBtn/>
         }
-        <button
-        onClick={themeChanger}
-        > Theme </button>
+        <button onClick={themeChanger} className='mx-5'>
+          {theme === 'light' ? <FaMoon /> : <FaSun />}
+        </button>
         </ul>
       </div>
     </header>
