@@ -3,14 +3,17 @@ import { useSelector } from 'react-redux'
 import { NavLink } from 'react-router-dom';
 import { Logo } from './index'
 import SignoutBtn from './SignoutBtn';
+import { useDispatch } from 'react-redux';
+import { change } from '../store/themeSlice';
 
 function Header() {
   const isLogin = useSelector((state) => state.auth.status); //this line see the userlogin status
   const [theme , setTheme] = useState("light");
-
+  const dispatch = useDispatch()
   useEffect(()=>{
     document.querySelector('html').classList.remove('light','dark')
     document.querySelector('html').classList.add(theme)
+    dispatch(change())
   },[theme])
 
   const themeChanger = () => {
