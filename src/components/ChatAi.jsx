@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import axios from 'axios'
 import conf from '../conf/conf';
 import { GoogleGenerativeAI } from "@google/generative-ai";
-import parse from 'html-react-parser'
+import ReactMarkdown from 'react-markdown';
+
 function ChatAi() {
 const genAI = new GoogleGenerativeAI(conf.geminiApiKey);
 const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
@@ -34,7 +34,7 @@ async function generateResponse(){
       {
         respons && 
         <div>
-            <p>{parse(respons)}</p>
+            <ReactMarkdown>{respons}</ReactMarkdown>
         </div>
       }
     </div>
