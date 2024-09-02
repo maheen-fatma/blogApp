@@ -7,6 +7,7 @@ import Input from "./Input";
 import EditorComponent from "./EditorComponent";
 import PostManipulation from "./PostManipulation";
 import PostPreview from "./PostPreview";
+import ChatAi from "./ChatAi";
 export  {
     Header,
     Footer,
@@ -17,4 +18,5 @@ export  {
     EditorComponent,
     PostManipulation,
     PostPreview,
+    ChatAi
 }
