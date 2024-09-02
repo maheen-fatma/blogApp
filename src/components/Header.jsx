@@ -71,10 +71,7 @@ function Header() {
               ) : null
             )
           }
-          {
-          isLogin && 
-          <SignoutBtn/>
-        }
+          
         <NavLink to='/ask-ai' className={({isActive})=>`rounded-3xl py-1 ml-1  ${isActive? "bg-black text-white":"transition duration-500 dark:hover:bg-gray-900 hover:bg-buttons1 hover:bg-opacity-50"}`}>
           <li 
               className='py-2 px-6 '
@@ -82,6 +79,10 @@ function Header() {
             Ask AI
           </li>
         </NavLink>
+        {
+          isLogin && 
+          <SignoutBtn/>
+        }
         <button onClick={themeChanger} className='mx-5'>
           {theme === 'light' ? <FaMoon /> : <FaSun />}
         </button>
