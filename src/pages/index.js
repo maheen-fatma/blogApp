@@ -6,6 +6,7 @@ import Post from "./Post";
 import AllPosts from "./AllPosts";
 import EditPost from "./EditPost";
 import MyPosts from "./MyPosts";
+import AskAi from "./AskAi";
 export  {
     Home,
     SignIn,
@@ -14,5 +15,6 @@ export  {
     AllPosts,
     Post,
     EditPost, 
-    MyPosts
+    MyPosts,
+    AskAi
 }
