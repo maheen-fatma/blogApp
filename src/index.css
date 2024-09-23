@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 @font-face {
     font-family: 'BALIGE';
     src: url('../public/fonts/balige/Balige\ Vintage\ -\ Personal\ Use.otf');

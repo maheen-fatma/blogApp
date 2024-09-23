@@ -8,6 +8,7 @@ import EditorComponent from "./EditorComponent";
 import PostManipulation from "./PostManipulation";
 import PostPreview from "./PostPreview";
 import ChatAi from "./ChatAi";
+import NameLogo from "./NameLogo";
 export  {
     Header,
     Footer,
@@ -18,5 +19,6 @@ export  {
     EditorComponent,
     PostManipulation,
     PostPreview,
-    ChatAi
+    ChatAi,
+    NameLogo
 }

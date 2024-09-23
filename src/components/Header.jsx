@@ -1,7 +1,7 @@
 import React, { useState , useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { NavLink } from 'react-router-dom';
-import { Logo } from './index'
+import { Logo, NameLogo } from './index'
 import SignoutBtn from './SignoutBtn';
 import { useDispatch } from 'react-redux';
 import { change } from '../store/themeSlice';
@@ -81,7 +81,8 @@ function Header() {
         </NavLink>
         {
           isLogin && 
-          <SignoutBtn/>
+          <SignoutBtn/> &&
+          <NameLogo/>
         }
         <button onClick={themeChanger} className='mx-5'>
           {theme === 'light' ? <FaMoon /> : <FaSun />}
