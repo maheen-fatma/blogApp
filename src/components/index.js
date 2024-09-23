@@ -9,6 +9,7 @@ import PostManipulation from "./PostManipulation";
 import PostPreview from "./PostPreview";
 import ChatAi from "./ChatAi";
 import NameLogo from "./NameLogo";
+
 export  {
     Header,
     Footer,
@@ -20,5 +21,5 @@ export  {
     PostManipulation,
     PostPreview,
     ChatAi,
-    NameLogo
+   NameLogo
 }

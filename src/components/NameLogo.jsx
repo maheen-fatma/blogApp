@@ -5,7 +5,7 @@ import { useState } from 'react';
 import { useSelector } from 'react-redux';
 function NameLogo() {
     const userData = useSelector((state)=>(state.auth.userInfo))
-    console.log(userData);
+    
     
      // State to track dropdown visibility
   const [isOpen, setIsOpen] = useState(false);
@@ -40,6 +40,16 @@ function NameLogo() {
             tabIndex="-1"
           >
             <div className="py-1" role="none">
+            <Link
+                to="/my-account"
+                className="block px-4 py-2 text-sm text-gray-700"
+                role="menuitem"
+                tabIndex="-1"
+                id="menu-item-0"
+                onClick={closeDropdown} // Close dropdown on link click
+              >
+                My Account
+              </Link>
               <Link
                 to="/add-post"
                 className="block px-4 py-2 text-sm text-gray-700"
