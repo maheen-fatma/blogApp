@@ -23,10 +23,12 @@ function NameLogo() {
     <div>
       <div className="relative inline-block text-left pt-1">
   <div>
-    <button type="button" className="inline-flex w-full justify-center gap-x-1.5  bg-gray-300 px-3 py-2 text-sm font-semibold text-black font-dolce shadow-sm rounded-3xl hover:bg-gray-200" id="menu-button" aria-expanded={isOpen}
+    <button type="button" className="inline-flex items-center justify-center w-10 h-10  bg-gray-300 text-customMaroon font-bold text-lg font-dolce rounded-full shadow-md hover:bg-gray-200 transition-colors" id="menu-button" aria-expanded={isOpen}
             aria-haspopup="true"
             onClick={toggleDropdown}>
-      {userData.name[0]}
+      {userData?.name 
+    ? `${userData.name.split(' ')[0][0]}${userData.name.split(' ')[1]?.[0] || ''}` 
+    : '*'}
     </button>
   </div>
 
